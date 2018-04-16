@@ -13,9 +13,10 @@ import javafx.util.Callback;
 
 @Component
 public class HomeView extends AbstractView<IHomePresenter> implements IHomeView {
-
-	public HomeView(Callback<Class<?>, Object> controllerFactory) throws IOException {
-		super(controllerFactory, FXMLS.HOME.BASE);
+	
+	public HomeView(Callback<Class<?>, Object> controllerFactory, IHomePresenter presenter) throws IOException {
+		super(controllerFactory, FXMLS.HOME.BASE, presenter);
+		presenter.setView(this);
 	}
 
 	@Override

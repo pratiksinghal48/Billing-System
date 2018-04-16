@@ -13,16 +13,12 @@ public abstract class AbstractView<T> implements IView<T> {
 
 	private String fxml;
 	protected Callback<Class<?>, Object> controllerFactory;
-	protected T presenter;
+	protected final T presenter;
 	protected Stage stage;
 
-	public AbstractView(Callback<Class<?>, Object> controllerFactory, String fxml) throws IOException {
+	public AbstractView(Callback<Class<?>, Object> controllerFactory, String fxml, T presenter) throws IOException {
 		this.controllerFactory = controllerFactory;
 		this.fxml = "/" + fxml;
-	}
-
-	@Override
-	public void setPresenter(T presenter) {
 		this.presenter = presenter;
 	}
 
